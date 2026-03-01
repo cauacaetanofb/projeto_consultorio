@@ -60,6 +60,7 @@ public class Program {
 				}
 				else {
 					paciente = new Paciente(name, cpf, dataNascimento);
+					
 					System.out.println("PACIENTE CADASTRADO COM SUCESSO!");
 					System.out.println(paciente.toString());
 				}	

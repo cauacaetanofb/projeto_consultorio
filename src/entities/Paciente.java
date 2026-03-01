@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 
 public class Paciente {
@@ -8,6 +9,7 @@ public class Paciente {
 	private String name;
 	private String cpf;
 	private LocalDate dataNascimento;
+	private int idade;
 	
 	public Paciente() {
 		
@@ -17,6 +19,7 @@ public class Paciente {
 		this.name = name;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
+		this.idade = calcularIdade(dataNascimento);
 	}
 
 	public String getName() {
@@ -41,10 +44,23 @@ public class Paciente {
 
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
+		this.idade = calcularIdade(dataNascimento);
+	}
+	
+	public int getIdade() {
+		return idade;
+	}
+	
+	private int calcularIdade(LocalDate dataNascimento) {
+		if (dataNascimento == null) return 0;
+		return  Period.between(this.dataNascimento, LocalDate.now()).getYears();
 	}
 	
 	public String toString() {
-		return name + ", " + cpf + ", " + dataNascimento;
+		return "Paciente: " + name + "\n" + 
+				" | CPF: " + cpf + "\n" + 
+				" | Nascimento: " + dataNascimento + "\n" + 
+				" | Idade: " + idade + " anos";
 	}
 	
 }
