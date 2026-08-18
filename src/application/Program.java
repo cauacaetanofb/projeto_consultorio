@@ -6,7 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Paciente;
+import model.entities.Paciente;
 
 public class Program {
 

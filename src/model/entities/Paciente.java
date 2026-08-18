@@ -1,8 +1,7 @@
-package entities;
+package model.entities;
 
 import java.time.LocalDate;
 import java.time.Period;
-
 
 public class Paciente {
 	
@@ -52,7 +51,9 @@ public class Paciente {
 	}
 	
 	private int calcularIdade(LocalDate dataNascimento) {
-		if (dataNascimento == null) return 0;
+		if (dataNascimento == null) {
+			return 0;
+		}
 		return  Period.between(this.dataNascimento, LocalDate.now()).getYears();
 	}
 	
